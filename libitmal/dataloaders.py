@@ -27,9 +27,12 @@ def MNIST_GetDataSet():
     return mnist.data, mnist.target
 
 
-def MNIST_PlotDigit(data):
+def MNIST_PlotDigit(data, title = "", xlabel = "", ylabel = ""):
     image = data.reshape(28, 28)
     plt.imshow(image, cmap = 'Greys')
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
 
 
 def IRIS_GetDataSet(return_X_y = False):
