@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import make_moons
-from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_openml
 from sklearn.datasets import load_iris
 
@@ -15,6 +14,8 @@ def MOON_GetDataSet(n_samples = 100, shuffle = True, noise = None,
 def MOON_Plot(X, y, title = "", xlabel = "", ylabel = ""):
     plt.scatter(X[:,0], X[:,1], c = y)   
     plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     
     plt.show()
 
