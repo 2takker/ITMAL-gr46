@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from sklearn.datasets import make_moons
 from sklearn.datasets import fetch_openml
 from sklearn.datasets import load_iris
+from pandas.plotting import scatter_matrix
 
 
 def MOON_GetDataSet(n_samples = 100, shuffle = True, noise = None,
@@ -32,3 +34,19 @@ def MNIST_PlotDigit(data):
 
 def IRIS_GetDataSet(return_X_y = False):
     return load_iris(return_X_y = return_X_y)
+
+
+def IRIS_Plot(iris):
+    colors = []
+    for value in iris.target:
+        if value == 0:
+            colors.append('DarkBlue')
+        elif value == 1:
+            colors.append('DarkRed')
+        elif value == 2:
+            colors.append('Green')
+            
+    df = pd.DataFrame(iris.data, columns = iris.feature_names)
+    scatter_matrix(df[iris.feature_names], figsize = (20, 20), s = 70, color = colors)
+    
+    plt.show()
